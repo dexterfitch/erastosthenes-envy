@@ -24,43 +24,22 @@ var optimusPrime = function(decepticon) {
 
 };
 
+// ----------------------------------------------------
 
-// for(var prime = 2; prime <= decepticon; prime += 1) {
-//   var primed = false;
-//
-//   for(index = 0; index < decepticons.length; index += 1) {
-//     // debugger;
-//     if ((decepticons[index] % prime === 0) && (primed === false)) {
-//       primes.push(prime);
-//       primed = true;
-//       for(var i = 0; i < decepticons.length; i += 1) {
-//         if (decepticons[i] % decepticons[index] === 0) {
-//           spliceThese.push(i);
-//         };
-//       };
-//     };
-//   };
-//   // debugger;
-//   spliceThese = spliceThese.sort();
-//
-//   for(var j = ((spliceThese.length)-1); j > 0; j -= 1) {
-//     if(spliceThese[j] !== spliceThese[j-1]) {
-//       decepticons.splice(spliceThese[j], 1);
-//     };
-//   };
-// };
-// return primes;
+$(document).ready(function() {
+  $("form#optimus-prime").submit(function(event) {
+    var number = $("input#number").val();
+    var primes = optimusPrime(number);
 
+    primes.forEach(function(prime) {
+      $("#primes").append(prime + ', ');
+    });
+    // $("#primes").text(primes);
+    $("#result").show();
 
-
-// decepticons.forEach(function(each) {
-//   if ((each % prime === 0) && (primed === false)) {
-//     primed = true;
-//   };
-// });
-
-
-
+    event.preventDefault();
+  });
+});
 // How to use the forEach function with nested function:
 //
 // var alertStuff = function(stuff) {
